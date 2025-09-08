@@ -1,0 +1,495 @@
+!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capital Insight</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0D1A2D;
+            color: #FFFFFF;
+            overflow-x: hidden;
+        }
+        /* Custom animated background */
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: radial-gradient(circle at 10% 90%, #1F2E46, transparent 50%),
+                        radial-gradient(circle at 90% 10%, #1F2E46, transparent 50%);
+            animation: pulse-bg 15s ease-in-out infinite alternate;
+        }
+
+        @keyframes pulse-bg {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.1); }
+        }
+
+        /* Active link styling */
+        .nav-link.active {
+            color: #FFD700;
+            border-bottom: 2px solid #FFD700;
+            padding-bottom: 4px;
+        }
+
+        /* Fade-in animation for sections */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .fade-in.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Hamburger menu transition */
+        .menu-icon {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 24px;
+            height: 18px;
+            cursor: pointer;
+        }
+        .menu-icon span {
+            display: block;
+            height: 2px;
+            width: 100%;
+            background: white;
+            transition: all 0.3s ease;
+        }
+        .menu-icon.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .menu-icon.open span:nth-child(2) { opacity: 0; }
+        .menu-icon.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+    </style>
+</head>
+<body>
+
+    <!-- Animated Background Layer -->
+    <div class="animated-bg"></div>
+
+    <!-- Header & Navigation -->
+    <header class="sticky top-0 z-50 bg-[#0D1A2D] bg-opacity-80 backdrop-blur-md shadow-lg py-4">
+        <div class="container mx-auto flex justify-between items-center px-4">
+            <a href="#home" class="text-2xl font-bold text-[#FFD700] tracking-wide font-['Playfair_Display']">Capital Insight</a>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#home" class="nav-link transition-colors duration-300 hover:text-white">Home</a>
+                <a href="#services" class="nav-link transition-colors duration-300 hover:text-white">Services</a>
+                <a href="#portfolio" class="nav-link transition-colors duration-300 hover:text-white">Portfolio</a>
+                <a href="#podcast" class="nav-link transition-colors duration-300 hover:text-white">Podcast</a>
+                <a href="#reviews" class="nav-link transition-colors duration-300 hover:text-white">Reviews</a>
+                <a href="#about" class="nav-link transition-colors duration-300 hover:text-white">About</a>
+                <a href="#contact" class="nav-link transition-colors duration-300 hover:text-white">Contact</a>
+            </nav>
+            <!-- Mobile Menu Button -->
+            <button id="menu-toggle" class="md:hidden">
+                <div class="menu-icon">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </button>
+        </div>
+        <!-- Mobile Navigation Menu -->
+        <nav id="mobile-menu" class="hidden md:hidden bg-[#0D1A2D] pt-4 pb-2">
+            <div class="flex flex-col items-center space-y-4">
+                <a href="#home" class="mobile-nav-link text-white transition-colors duration-300">Home</a>
+                <a href="#services" class="mobile-nav-link text-white transition-colors duration-300">Services</a>
+                <a href="#portfolio" class="mobile-nav-link text-white transition-colors duration-300">Portfolio</a>
+                <a href="#podcast" class="mobile-nav-link text-white transition-colors duration-300">Podcast</a>
+                <a href="#reviews" class="mobile-nav-link text-white transition-colors duration-300">Reviews</a>
+                <a href="#about" class="mobile-nav-link text-white transition-colors duration-300">About</a>
+                <a href="#contact" class="mobile-nav-link text-white transition-colors duration-300">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-16">
+
+        <!-- Home Section -->
+        <section id="home" class="min-h-screen flex flex-col justify-center items-center text-center">
+            <div class="fade-in max-w-4xl mx-auto">
+                <img src="https://placehold.co/1000x300/1F2E46/FFD700?text=CAPITAL+INSIGHT" alt="Capital Insight Logo" class="w-full h-auto mb-8 rounded-lg shadow-xl animate-pulse">
+                <h1 class="text-4xl md:text-6xl font-extrabold text-[#FFD700] mb-4">Financial Insight, Simplified.</h1>
+                <p class="text-lg md:text-xl text-gray-300 mb-8">Empowering you with the knowledge to navigate the financial world.</p>
+                <a href="#about" class="inline-block bg-[#FFD700] text-[#0D1A2D] font-bold py-3 px-8 rounded-full shadow-lg hover:bg-yellow-400 transition-colors duration-300 transform hover:scale-105">
+                    Discover My Work &rarr;
+                </a>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="py-20 fade-in">
+            <h2 class="text-3xl md:text-4xl font-bold text-[#FFD700] mb-10 text-center">Services</h2>
+            <div class="bg-[#1F2E46] p-8 rounded-2xl shadow-2xl">
+                <h3 class="text-2xl font-bold text-white mb-6">How I Can Help You</h3>
+                <p class="text-lg text-gray-300 mb-8">
+                    I provide comprehensive financial and strategic services to help small and medium-sized enterprises (SMEs) navigate complex decisions, optimize operations, and achieve growth. My expertise is built on a foundation of rigorous analysis and a commitment to delivering actionable insights.
+                </p>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <!-- Service 1 -->
+                    <div class="bg-[#0D1A2D] p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
+                        <h4 class="text-lg font-semibold text-[#FFD700] mb-2">Financial Modeling & Valuation</h4>
+                        <p class="text-gray-300">Build comprehensive DCF and three-statement financial models, providing accurate valuations and projections to support investment decisions, mergers, and acquisitions.</p>
+                    </div>
+                    <!-- Service 2 -->
+                    <div class="bg-[#0D1A2D] p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
+                        <h4 class="text-lg font-semibold text-[#FFD700] mb-2">Strategic & Business Analysis</h4>
+                        <p class="text-gray-300">Analyze market trends, competitive landscapes, and internal processes to identify growth opportunities, optimize operational efficiency, and develop data-driven strategies.</p>
+                    </div>
+                    <!-- Service 3 -->
+                    <div class="bg-[#0D1A2D] p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
+                        <h4 class="text-lg font-semibold text-[#FFD700] mb-2">Business Reporting & Risk Assessment</h4>
+                        <p class="text-gray-300">Create clear, insightful financial reports and presentations for stakeholders. Conduct detailed risk assessments to identify potential threats and develop mitigation plans for capital projects and new initiatives.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Portfolio Section -->
+        <section id="portfolio" class="py-20 fade-in">
+            <h2 class="text-3xl md:text-4xl font-bold text-[#FFD700] mb-10 text-center">Portfolio & Skills</h2>
+            <div class="bg-[#1F2E46] p-8 rounded-2xl shadow-2xl">
+                <h3 class="text-2xl font-bold text-white mb-6">Projects & Case Simulations</h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <!-- Project 1 -->
+                    <div class="bg-[#0D1A2D] p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
+                        <h4 class="text-lg font-semibold text-[#FFD700] mb-2">Pharmaceutical Company Valuation</h4>
+                        <p class="text-gray-300">Assessed enterprise values up to $200B across 10 firms using DCF & comps.</p>
+                    </div>
+                    <!-- Project 2 -->
+                    <div class="bg-[#0D1A2D] p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
+                        <h4 class="text-lg font-semibold text-[#FFD700] mb-2">Bumble & Impossible Foods Growth Strategies</h4>
+                        <p class="text-gray-300">Identified $42M & $19M in new annual revenues via competitive analysis.</p>
+                    </div>
+                    <!-- Project 3 -->
+                    <div class="bg-[#0D1A2D] p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
+                        <h4 class="text-lg font-semibold text-[#FFD700] mb-2">Oil & Gas Valuation</h4>
+                        <p class="text-300">Built a comprehensive DCF model to project future cash flows for Total Energies and ExxonMobil. Conducted a detailed comparable company analysis to benchmark their performance, providing key insights into their valuation, market positioning, and strategic outlook. The project required in-depth research into the dynamic global energy sector.</p>
+                    </div>
+                    <!-- New Project for Independent Work -->
+                    <div class="bg-[#0D1A2D] p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
+                        <h4 class="text-lg font-semibold text-[#FFD700] mb-2">SME Financial & Strategic Analysis</h4>
+                        <p class="text-gray-300">Delivered comprehensive DCF and three-statement models for small and medium-sized enterprises (SMEs), including a major healthcare brand valued at over 200M PKR. Devised an optimized new hire onboarding process that reduced training time by 18% and increased productivity by 6%.</p>
+                    </div>
+                </div>
+                
+                <h3 class="text-2xl font-bold text-white mt-12 mb-6">Skills & Certifications</h3>
+                <div class="space-y-8">
+                    <div>
+                        <h4 class="text-xl font-semibold text-[#FFD700] mb-4">Technical & Soft Skills</h4>
+                        <div class="flex flex-wrap gap-3">
+                            <span class="bg-[#0D1A2D] text-gray-300 text-sm font-medium px-4 py-2 rounded-full">Excel (Advanced)</span>
+                            <span class="bg-[#0D1A2D] text-gray-300 text-sm font-medium px-4 py-2 rounded-full">Financial Modeling</span>
+                            <span class="bg-[#0D1A2D] text-gray-300 text-sm font-medium px-4 py-2 rounded-full">Capital IQ</span>
+                            <span class="bg-[#0D1A2D] text-gray-300 text-sm font-medium px-4 py-2 rounded-full">Bloomberg</span>
+                            <span class="bg-[#0D1A2D] text-gray-300 text-sm font-medium px-4 py-2 rounded-full">Strategic Communication</span>
+                            <span class="bg-[#0D1A2D] text-gray-300 text-sm font-medium px-4 py-2 rounded-full">Leadership</span>
+                            <span class="bg-[#0D1A2D] text-gray-300 text-sm font-medium px-4 py-2 rounded-full">Teamwork</span>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-semibold text-[#FFD700] mb-4">Certifications & Simulations</h4>
+                        <div class="flex flex-wrap gap-3">
+                            <span class="bg-[#0D1A2D] text-gray-300 text-sm font-medium px-4 py-2 rounded-full">CFI: Financial Analysis & Modeling</span>
+                            <span class="bg-[#0D1A2D] text-gray-300 text-sm font-medium px-4 py-2 rounded-full">JPMorgan Investment Banking Simulation</span>
+                            <span class="bg-[#0D1A2D] text-gray-300 text-sm font-medium px-4 py-2 rounded-full">Bank of America Investment Banking Simulation</span>
+                            <span class="bg-[#0D1A2D] text-gray-300 text-sm font-medium px-4 py-2 rounded-full">PwC Simulation</span>
+                            <span class="bg-[#0D1A2D] text-gray-300 text-sm font-medium px-4 py-2 rounded-full">BCG Strategic Consulting Simulation</span>
+                            <span class="bg-[#0D1A2D] text-gray-300 text-sm font-medium px-4 py-2 rounded-full">KPMG Career Catalyst: Advisory</span>
+                            <span class="bg-[#0D1A2D] text-gray-300 text-sm font-medium px-4 py-2 rounded-full">NY Jobs Council Financial Analyst Simulation</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Podcast Section -->
+        <section id="podcast" class="py-20 fade-in">
+            <h2 class="text-3xl md:text-4xl font-bold text-[#FFD700] mb-10 text-center">The Capital Insight Podcast</h2>
+            <div class="bg-[#1F2E46] p-8 rounded-2xl shadow-2xl max-w-2xl mx-auto">
+                <div class="flex flex-col md:flex-row items-center md:items-start space-y-6 md:space-y-0 md:space-x-8">
+                    <!-- Text and player section -->
+                    <div class="flex-1">
+                        <h3 class="text-2xl font-bold text-white mb-2">Episode 1: The Global Debt Time Bomb</h3>
+                        <p class="text-gray-300 mb-4">
+                            In this inaugural episode, we break down the complexities of sovereign debt and explore whether global economies are heading for a new financial crisis. Based on my recent article, this discussion provides a deeper dive into the data and future outlook.
+                        </p>
+                        <!-- To add your podcast, get the embed code from your podcast hosting service (like Spotify, Apple Podcasts, or others). Replace the iframe below with your own code. -->
+                        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/567qQz2aN2bA0E3L7kE8gI?utm_source=generator" width="100%" height="352" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Client Reviews Section -->
+        <section id="reviews" class="py-20 fade-in">
+            <h2 class="text-3xl md:text-4xl font-bold text-[#FFD700] mb-10 text-center">Client Reviews</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- New Review from Anmol Public School -->
+                <div class="bg-[#1F2E46] p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="flex items-center mb-4">
+                        <img src="https://placehold.co/60x60/FFD700/0D1A2D?text=WZ" alt="Waqar Zaheer Photo" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <p class="font-bold text-white">Waqar Zaheer</p>
+                            <p class="text-sm text-gray-400">CEO/Managing Partner</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-200 leading-relaxed italic">
+                        "Allyan's financial analysis was instrumental in our decision to install a solar energy system. His in-depth valuation and focus on ESG factors provided crucial insights, projecting a positive NPV of around PKR 9,000,000. He made a complex analysis easy to understand and gave us a clear strategic direction."
+                    </p>
+                </div>
+                <!-- Updated Review 2 -->
+                <div class="bg-[#1F2E46] p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="flex items-center mb-4">
+                        <img src="https://placehold.co/60x60/FFD700/0D1A2D?text=BB" alt="Baidar Bakht Photo" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <p class="font-bold text-white">Baidar Bakht</p>
+                            <p class="text-sm text-gray-400">Managing Partner, Al Raziq Cold Stores</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-200 leading-relaxed italic">
+                        "Capital Insight's strategic analysis gave our team the competitive edge we needed to acquire a new store. Their insights were a game-changer."
+                    </p>
+                </div>
+                <!-- Updated Review 3 -->
+                <div class="bg-[#1F2E46] p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="flex items-center mb-4">
+                        <img src="https://placehold.co/60x60/FFD700/0D1A2D?text=AS" alt="Ahsan Shahood Photo" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <p class="font-bold text-white">Ahsan Shahood</p>
+                            <p class="text-sm text-gray-400">CEO, Queen's Marquee</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-200 leading-relaxed italic">
+                        "We sought out Capital Insight for an in-depth financial review as we were planning a major expansion. Their comprehensive valuation and strategic insights helped us identify key opportunities and risks we hadn't considered, giving us the confidence to move forward with a well-informed decision. Their work was exceptional."
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-20 fade-in">
+            <div class="bg-[#1F2E46] p-8 md:p-12 rounded-2xl shadow-2xl">
+                <h2 class="text-3xl md:text-4xl font-bold text-[#FFD700] mb-6 text-center">About</h2>
+                <div class="text-lg leading-relaxed text-gray-200 space-y-6">
+                    <p>
+                        My journey in finance is driven by a passion for simplifying complex financial models and delivering insights that lead to smarter, data-driven decisions. As a First-Class Honours graduate from the University of Manchester and an ACCA candidate, I’ve built a robust foundation in valuation, financial modeling, and strategic analysis.
+                    </p>
+                    <p>
+                        My experience spans continents, from the fast-paced markets of the US and UK to the emerging economies of Pakistan. I thrive on translating intricate data into clear, actionable intelligence, whether it's through building a comprehensive three-statement model or assessing enterprise values for multi-million-dollar ventures. I’m currently seeking a role in M&A, Investment Banking, or Capital Markets where I can apply my skills to support high-value financial outcomes.
+                    </p>
+                </div>
+
+                <!-- Merged Experience Section -->
+                <h3 class="text-2xl font-bold text-[#FFD700] mt-12 mb-6 text-center">Work Experience</h3>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Mitre Insights Corp -->
+                    <div class="bg-[#0D1A2D] p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                        <div class="flex justify-between items-center mb-2">
+                            <h4 class="text-xl font-bold text-white">Financial Analyst Intern</h4>
+                            <span class="text-sm text-gray-400">May 2025 - Aug 2025</span>
+                        </div>
+                        <p class="text-lg text-[#FFD700] mb-2">Mitre Insights Corp | Texas, USA</p>
+                        <ul class="list-disc list-inside text-gray-300 space-y-1">
+                            <li>Systematized team workflow across different time zones, improving forecast accuracy by 12% and ensuring timely project delivery.</li>
+                            <li>Valued over $500M in enterprise values for 5 projects, using Excel, Bloomberg, and Capital IQ to execute DCF & comps analysis.</li>
+                        </ul>
+                    </div>
+                    <!-- Independent Financial Analyst -->
+                    <div class="bg-[#0D1A2D] p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                        <div class="flex justify-between items-center mb-2">
+                            <h4 class="text-xl font-bold text-white">Independent Financial Analyst</h4>
+                            <span class="text-sm text-gray-400">Sep 2024 - Current</span>
+                        </div>
+                        <p class="text-lg text-[#FFD700] mb-2">Freelance</p>
+                        <ul class="list-disc list-inside text-gray-300 space-y-1">
+                            <li>Delivered comprehensive DCF and three-statement models for small and medium-sized enterprises (SMEs), including a major healthcare brand valued at over 200M PKR. Devised an optimized new hire onboarding process that reduced training time by 18% and increased productivity by 6%.</p>
+                    </div>
+                    <!-- Al Rehman Enterprises -->
+                    <div class="bg-[#0D1A2D] p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                        <div class="flex justify-between items-center mb-2">
+                            <h4 class="text-xl font-bold text-white">Finance Intern</h4>
+                            <span class="text-sm text-gray-400">Jun 2022 - Aug 2022</span>
+                        </div>
+                        <p class="text-lg text-[#FFD700] mb-2">Al Rehman Enterprises | Faisalabad, Pakistan</p>
+                        <ul class="list-disc list-inside text-gray-300 space-y-1">
+                            <li>Conducted a critical financial risk assessment for a 20M PKR capital expenditure project.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Merged Education Section -->
+                <h3 class="text-2xl font-bold text-[#FFD700] mt-12 mb-6 text-center">Education & Leadership</h3>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- Education -->
+                    <div class="bg-[#0D1A2D] p-8 rounded-2xl shadow-2xl">
+                        <h4 class="text-2xl font-bold text-white mb-4">Education</h4>
+                        <div class="space-y-6">
+                            <div class="border-l-4 border-[#FFD700] pl-4">
+                                <h5 class="text-xl font-semibold text-white">University of Manchester</h5>
+                                <p class="text-gray-400">BSc Management (Accounting & Finance)</p>
+                                <p class="text-sm text-gray-500">First-Class Honours (GPA 4.0), Sep 2020 - Dec 2023</p>
+                                <p class="mt-2 text-gray-300 text-sm">Focused on core modules in Corporate Finance, Financial Modeling, and Valuation, which provided the quantitative and analytical foundation for my professional work.</p>
+                            </div>
+                            <div class="border-l-4 border-[#FFD700] pl-4">
+                                <h5 class="text-xl font-semibold text-white">ACCA Qualification</h5>
+                                <p class="text-gray-400">9/13 Exams Cleared</p>
+                                <p class="text-sm text-gray-500">Expected Completion: March 2026</p>
+                                <p class="mt-2 text-gray-300 text-sm">Pursuing this qualification to further solidify my expertise in financial reporting, corporate law, and business analysis, ensuring a comprehensive understanding of global financial standards.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Leadership & Activities -->
+                    <div class="bg-[#0D1A2D] p-8 rounded-2xl shadow-2xl">
+                        <h4 class="text-2xl font-bold text-white mb-4">Leadership & Activities</h4>
+                        <div class="space-y-6">
+                            <div class="border-l-4 border-[#FFD700] pl-4">
+                                <h5 class="text-xl font-semibold text-white">LinkedIn Content Creator</h5>
+                                <p class="text-gray-400 mb-4">Authored 20+ articles on finance, economy, and strategy, with over 1500 weekly readers, demonstrating thought leadership and industry insights.</p>
+                                <h6 class="text-lg font-semibold text-white mb-2">Featured Articles:</h6>
+                                <ul class="list-disc list-inside text-gray-400 space-y-1">
+                                    <li>
+                                        <a href="https://www.linkedin.com/pulse/global-debt-time-bomb-we-heading-sovereign-crisis-allyan-ahmad-6xcte" target="_blank" class="text-[#FFD700] hover:text-white transition-colors duration-300 underline">
+                                            Global Debt Time Bomb: Are we heading to a sovereign crisis?
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 fade-in">
+            <div class="bg-[#1F2E46] p-8 md:p-12 rounded-2xl shadow-2xl">
+                <h2 class="text-3xl md:text-4xl font-bold text-[#FFD700] mb-6 text-center">Get in Touch</h2>
+                <p class="text-lg text-gray-200 mb-8 text-center">
+                    I'm always open to discussing finance, career paths, or business strategies.
+                </p>
+                <div class="flex flex-col md:flex-row justify-center items-center space-y-6 md:space-y-0 md:space-x-8">
+                    <a href="https://www.linkedin.com/in/allyan-ahmad-651010209/" target="_blank" class="flex items-center space-x-2 text-white hover:text-[#FFD700] transition-colors duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm11-11h-2.915c-.067.625-.494 2.508-1.579 2.508s-.898-.557-.898-.82c0-1.874 1.394-1.636 2.474-3.085.677-.923.824-2.115.824-3.321v-1.782h3v11zM12.923 19h-2.923v-7.989c-.001-.137-.014-.265-.04-.397h-.012c-.17-.83-.497-1.554-1.259-1.956-.762-.403-1.666-.597-2.613-.674-.95-.08-1.932-.08-2.932 0h-3c0 2.155.006 4.316-.002 6.471.002.046.012.09.02.136h-.01c.214 1.054 1.042 2.052 2.375 2.285.498.087 1.055.132 1.624.132.895 0 1.766-.088 2.576-.264.81-.176 1.488-.506 2.015-.968.528-.462.883-1.018 1.096-1.624.213-.606.27-1.242.193-1.897-.076-.656-.279-1.292-.596-1.867-.318-.575-.758-.934-1.314-1.218-.556-.284-1.18-.426-1.866-.426-.688 0-1.365.142-1.866.426-.556.284-.996.643-1.314 1.218-.318.575-.521 1.211-.596 1.867-.077.656-.02 1.292.193 1.897.213.606.591 1.155 1.096 1.624.528.462 1.205.792 2.015.968.81.176 1.681.264 2.576.264.57 0 1.127-.045 1.624-.132 1.333-.233 2.161-1.231 2.375-2.285.008-.046.018-.09.02-.136V19z"/>
+                        </svg>
+                        <span>LinkedIn</span>
+                    </a>
+                    <a href="mailto:Allyanahmad598@gmail.com" class="flex items-center space-x-2 text-white hover:text-[#FFD700] transition-colors duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M24 6.556v10.889c0 1.657-1.343 3-3 3h-18c-1.657 0-3-1.343-3-3v-10.889l12 7.222 12-7.222zm-24-3.556v1.111l12 7.222 12-7.222v-1.111h-24z"/>
+                        </svg>
+                        <span>Email</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-[#0D1A2D] py-6 text-center text-gray-400">
+        <p>&copy; 2025 Capital Insight. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript for interactivity -->
+    <script>
+        // Smooth scroll and active link highlighting
+        document.addEventListener('DOMContentLoaded', () => {
+            const navLinks = document.querySelectorAll('.nav-link, .mobile-nav-link');
+            const sections = document.querySelectorAll('section');
+            const discoverButton = document.querySelector('#discover-button');
+            const mobileMenuToggle = document.querySelector('#menu-toggle');
+            const mobileMenu = document.querySelector('#mobile-menu');
+
+            // Set up Intersection Observer for active link highlighting
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.5
+            };
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const id = entry.target.id;
+                        navLinks.forEach(link => {
+                            link.classList.remove('active');
+                            if (link.getAttribute('href') === `#${id}`) {
+                                link.classList.add('active');
+                            }
+                        });
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+
+            // Mobile menu toggle
+            mobileMenuToggle.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                mobileMenuToggle.querySelector('.menu-icon').classList.toggle('open');
+            });
+
+            // Smooth scroll on nav link click and close mobile menu
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = link.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+                    if (targetSection) {
+                        window.scrollTo({
+                            top: targetSection.offsetTop,
+                            behavior: 'smooth'
+                        });
+                    }
+                    // Close the mobile menu after clicking a link
+                    if (!mobileMenu.classList.contains('hidden')) {
+                         mobileMenu.classList.add('hidden');
+                         mobileMenuToggle.querySelector('.menu-icon').classList.remove('open');
+                    }
+                });
+            });
+
+            // Simple animation on scroll
+            const faders = document.querySelectorAll('.fade-in');
+            const appearOptions = {
+                threshold: 0.2
+            };
+            const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) {
+                        return;
+                    } else {
+                        entry.target.classList.add('is-visible');
+                        appearOnScroll.unobserve(entry.target);
+                    }
+                });
+            }, appearOptions);
+
+            faders.forEach(fader => {
+                appearOnScroll.observe(fader);
+            });
+        });
+    </script>
+</body>
+</html>
